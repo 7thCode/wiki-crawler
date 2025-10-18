@@ -4,7 +4,9 @@
       "mcp__serena__get_current_config",
       "Bash(npm install)",
       "Bash(tree -L 3 -I 'node_modules')",
-      "Bash(tree src -L 2)"
+      "Bash(tree src -L 2)",
+      "mcp__serena__read_file",
+      "Bash(npm run build:mac)"
     ],
     "deny": [],
     "ask": []

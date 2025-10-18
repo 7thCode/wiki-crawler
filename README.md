@@ -94,21 +94,43 @@ output_directory/
 
 ## ビルド
 
+配布可能なインストーラーをビルドできます:
+
 ```bash
 # すべてのプラットフォーム向けにビルド
 npm run build
 
-# macOS向け
+# macOS向け DMG
 npm run build:mac
 
-# Windows向け
+# Windows向け NSIS インストーラー
 npm run build:win
 
-# Linux向け
+# Linux向け AppImage
 npm run build:linux
 ```
 
-ビルドされたアプリケーションは `dist/` ディレクトリに生成されます。
+### 生成されるファイル
+
+ビルドされたアプリケーションは `dist/` ディレクトリに生成されます:
+
+- **macOS**: `Wikipedia Theme Crawler-1.0.0-arm64.dmg` (約90MB)
+  - DMGファイルをダブルクリックしてインストール
+  - Apple Silicon (M1/M2/M3) 対応
+
+- **Windows**: `Wikipedia Theme Crawler Setup 1.0.0.exe`
+  - NSISインストーラーを実行してインストール
+
+- **Linux**: `Wikipedia Theme Crawler-1.0.0.AppImage`
+  - 実行権限を付与して起動: `chmod +x *.AppImage && ./Wikipedia\ Theme\ Crawler-*.AppImage`
+
+### コード署名について
+
+開発用ビルドでは署名なしでパッケージングされます。配布する場合は以下が必要です:
+
+- **macOS**: Developer ID Application証明書
+- **Windows**: コード署名証明書 (EV証明書推奨)
+- **Linux**: 署名不要（ただしパッケージリポジトリ登録時は必要な場合あり）
 
 ## 技術スタック
 
