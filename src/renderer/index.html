@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wikipedia Theme Crawler</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -19,7 +21,7 @@
 
         <div class="form-group">
           <label for="language">言語</label>
-          <select id="language">
+          <select id="language" class="mdc-select">
             <option value="ja">日本語 (ja)</option>
             <option value="en">English (en)</option>
             <option value="de">Deutsch (de)</option>
@@ -30,7 +32,7 @@
 
         <div class="form-group">
           <label for="mode">収集モード</label>
-          <select id="mode">
+          <select id="mode" class="mdc-select">
             <option value="category">カテゴリ</option>
             <option value="search">キーワード検索</option>
             <option value="links">リンク追跡</option>
@@ -40,7 +42,7 @@
 
         <div class="form-group" id="queryGroup">
           <label for="query" id="queryLabel">クエリ</label>
-          <input type="text" id="query" placeholder="例: 日本の歴史">
+          <input type="text" id="query" class="mdc-text-field" placeholder="例: 日本の歴史">
           <div id="categoryHelp" class="help-text">
             カテゴリ名を入力 (例: 日本の歴史, 物理学)
           </div>
@@ -48,17 +50,17 @@
 
         <div class="form-group" id="linkDepthGroup" style="display: none;">
           <label for="linkDepth">リンク深度</label>
-          <input type="number" id="linkDepth" value="1" min="1" max="3">
+          <input type="number" id="linkDepth" class="mdc-text-field" value="1" min="1" max="3">
         </div>
 
         <div class="form-group">
           <label for="maxArticles">最大記事数</label>
-          <input type="number" id="maxArticles" value="50" min="1" max="1000">
+          <input type="number" id="maxArticles" class="mdc-text-field" value="50" min="1" max="1000">
         </div>
 
         <div class="form-group">
           <label for="format">保存形式</label>
-          <select id="format">
+          <select id="format" class="mdc-select">
             <option value="markdown">Markdown (.md)</option>
             <option value="html">HTML (.html)</option>
             <option value="json">JSON (.json)</option>
@@ -67,26 +69,32 @@
 
         <div class="form-group">
           <label>
-            <input type="checkbox" id="includeImages">
+            <input type="checkbox" id="includeImages" class="mdc-checkbox">
             画像もダウンロード
           </label>
         </div>
 
         <div class="form-group">
           <label for="theme">テーマ名</label>
-          <input type="text" id="theme" placeholder="例: Japanese_History">
+          <input type="text" id="theme" class="mdc-text-field" placeholder="例: Japanese_History">
         </div>
 
         <div class="form-group">
           <label for="outputDirectory">出力ディレクトリ</label>
           <div class="directory-selector">
-            <input type="text" id="outputDirectory" readonly placeholder="選択してください">
-            <button id="selectDirBtn" class="btn-secondary">選択</button>
+            <input type="text" id="outputDirectory" class="mdc-text-field" readonly placeholder="選択してください">
+            <button id="selectDirBtn" class="mdc-button mdc-button--outlined">
+              <span class="material-icons">folder_open</span>
+              選択
+            </button>
           </div>
         </div>
 
         <div class="button-group">
-          <button id="startBtn" class="btn-primary">開始</button>
+          <button id="startBtn" class="mdc-button mdc-button--raised">
+            <span class="material-icons">play_arrow</span>
+            開始
+          </button>
           <button id="stopBtn" class="btn-danger" disabled>停止</button>
         </div>
       </section>

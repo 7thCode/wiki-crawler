@@ -9,7 +9,11 @@
     "build": "electron-builder",
     "build:mac": "electron-builder --mac",
     "build:win": "electron-builder --win",
-    "build:linux": "electron-builder --linux"
+    "build:linux": "electron-builder --linux",
+    "package": "electron-builder --mac --win --linux",
+    "package:mac": "electron-builder --mac",
+    "package:win": "electron-builder --win",
+    "package:linux": "electron-builder --linux"
   },
   "keywords": [
     "electron",
@@ -22,6 +26,7 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^1.6.0",
+    "material-components-web": "^14.0.0",
     "turndown": "^7.1.2"
   },
   "devDependencies": {
@@ -38,16 +43,20 @@
       "src/**/*",
       "package.json"
     ],
+    "icon": "build/icon.png",
     "mac": {
       "category": "public.app-category.education",
-      "target": "dmg"
+      "target": "dmg",
+      "icon": "build/icon.png"
     },
     "win": {
-      "target": "nsis"
+      "target": "nsis",
+      "icon": "build/icon.png"
     },
     "linux": {
       "target": "AppImage",
-      "category": "Education"
+      "category": "Education",
+      "icon": "build/icon.png"
     }
   }
 }

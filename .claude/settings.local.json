@@ -6,7 +6,13 @@
       "Bash(tree -L 3 -I 'node_modules')",
       "Bash(tree src -L 2)",
       "mcp__serena__read_file",
-      "Bash(npm run build:mac)"
+      "Bash(npm run build:mac)",
+      "mcp__serena__activate_project",
+      "Bash(npm install material-components-web --save)",
+      "mcp__serena__replace_regex",
+      "mcp__serena__find_file",
+      "mcp__serena__list_dir",
+      "Bash(mkdir -p /Users/oda/project/claude/wiki-crawler/build)"
     ],
     "deny": [],
     "ask": []
