@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wikipedia Theme Crawler</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>📚 Wikipedia Theme Crawler</h1>
+      <p class="subtitle">テーマ別にWikipediaコンテンツを収集・保存</p>
+    </header>
+
+    <main>
+      <section class="config-section">
+        <h2>設定</h2>
+
+        <div class="form-group">
+          <label for="language">言語</label>
+          <select id="language">
+            <option value="ja">日本語 (ja)</option>
+            <option value="en">English (en)</option>
+            <option value="de">Deutsch (de)</option>
+            <option value="fr">Français (fr)</option>
+            <option value="es">Español (es)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="mode">収集モード</label>
+          <select id="mode">
+            <option value="category">カテゴリ</option>
+            <option value="search">キーワード検索</option>
+            <option value="links">リンク追跡</option>
+            <option value="manual">手動リスト</option>
+          </select>
+        </div>
+
+        <div class="form-group" id="queryGroup">
+          <label for="query" id="queryLabel">クエリ</label>
+          <input type="text" id="query" placeholder="例: 日本の歴史">
+          <div id="categoryHelp" class="help-text">
+            カテゴリ名を入力 (例: 日本の歴史, 物理学)
+          </div>
+        </div>
+
+        <div class="form-group" id="linkDepthGroup" style="display: none;">
+          <label for="linkDepth">リンク深度</label>
+          <input type="number" id="linkDepth" value="1" min="1" max="3">
+        </div>
+
+        <div class="form-group">
+          <label for="maxArticles">最大記事数</label>
+          <input type="number" id="maxArticles" value="50" min="1" max="1000">
+        </div>
+
+        <div class="form-group">
+          <label for="format">保存形式</label>
+          <select id="format">
+            <option value="markdown">Markdown (.md)</option>
+            <option value="html">HTML (.html)</option>
+            <option value="json">JSON (.json)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>
+            <input type="checkbox" id="includeImages">
+            画像もダウンロード
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label for="theme">テーマ名</label>
+          <input type="text" id="theme" placeholder="例: Japanese_History">
+        </div>
+
+        <div class="form-group">
+          <label for="outputDirectory">出力ディレクトリ</label>
+          <div class="directory-selector">
+            <input type="text" id="outputDirectory" readonly placeholder="選択してください">
+            <button id="selectDirBtn" class="btn-secondary">選択</button>
+          </div>
+        </div>
+
+        <div class="button-group">
+          <button id="startBtn" class="btn-primary">開始</button>
+          <button id="stopBtn" class="btn-danger" disabled>停止</button>
+        </div>
+      </section>
+
+      <section class="progress-section" id="progressSection" style="display: none;">
+        <h2>進捗状況</h2>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <p class="progress-text" id="progressText">0 / 0</p>
+        <p class="current-article" id="currentArticle"></p>
+      </section>
+
+      <section class="result-section" id="resultSection" style="display: none;">
+        <h2>完了</h2>
+        <p id="resultText"></p>
+      </section>
+    </main>
+
+    <footer>
+      <p>Wikipedia Theme Crawler v1.0.0</p>
+    </footer>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
